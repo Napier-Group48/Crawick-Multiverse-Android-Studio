@@ -61,21 +61,21 @@ public class MainActivity extends AppCompatActivity
 
                 switch (item.getItemId()) {
                     case R.id.nav_home :
-                        //mMainNav.setItemBackgroundResource(R.color.colorVibrantGreen);
+                        mMainNav.setItemBackgroundResource(R.color.colorWhite);
                         setFragment(homeFragment);
                         return true;
                     case R.id.nav_info :
-                        //mMainNav.setItemBackgroundResource(R.color.colorVibrantGreen);
+                        mMainNav.setItemBackgroundResource(R.color.colorWhite);
                         setFragment(infoFragment);
                         return true;
 
                     case R.id.nav_gps :
-                        //mMainNav.setItemBackgroundResource(R.color.colorVibrantGreen);
+                        mMainNav.setItemBackgroundResource(R.color.colorWhite);
                         setFragment(gpsFragment);
                         return true;
 
                     case R.id.nav_settings :
-                        //mMainNav.setItemBackgroundResource(R.color.colorVibrantGreen);
+                        mMainNav.setItemBackgroundResource(R.color.colorWhite);
                         setFragment(settingsFragment);
                         return true;
                         default:

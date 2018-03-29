@@ -3,12 +3,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ThirdBurgerFragment">
+    tools:context=".ThirdBurgerFragment"
+    android:layout_above="@id/nav_main">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+
+
+
+    <WebView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="This is the third burger choice" />
+        android:id="@+id/wv"
+    />
 
 </FrameLayout>
