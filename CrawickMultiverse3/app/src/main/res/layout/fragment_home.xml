@@ -5,18 +5,10 @@
     android:layout_height="match_parent"
     tools:context=".HomeFragment">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center_horizontal"
-        android:text="Introduction" />
-
     <ImageView
-
-
-        />
-
-
-
+        android:id="@+id/entrance"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/entrance1" />
 
 </ScrollView>
