@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity
     private FirstBurgerFragment firstBurgerFragment;
     private SecondBurgerFragment secondBurgerFragment;
     private ThirdBurgerFragment thirdBurgerFragment;
+    private SurveyBurgerFragment surveyBurgerFragment;
 
 
 
@@ -141,6 +142,7 @@ public class MainActivity extends AppCompatActivity
         firstBurgerFragment = new FirstBurgerFragment();
         secondBurgerFragment = new SecondBurgerFragment();
         thirdBurgerFragment = new ThirdBurgerFragment();
+        surveyBurgerFragment = new SurveyBurgerFragment();
 
 
         if (id == R.id.nav_first_layout) { //This is the code for the Hamburger Menu
@@ -152,7 +154,7 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_manage) {
 
         } else if (id == R.id.nav_share) {
-
+            setFragment(surveyBurgerFragment);
         } else if (id == R.id.nav_send) {
 
         }
