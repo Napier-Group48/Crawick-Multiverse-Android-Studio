@@ -1,15 +1,358 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_above="@id/nav_main"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
     tools:context=".HomeFragment">
 
-    <ImageView
-        android:id="@+id/entrance"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:src="@drawable/entrance1" />
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
+        <TextView
+            android:id="@+id/entranceHeading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Entrance/Introduction"
+            android:textSize="25dp" />
+
+        <ImageView
+            android:id="@+id/entranceImageView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/entrance1" />
+
+        <TextView
+            android:id="@+id/entranceText"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:text="Welcome to The Crawick Multiverse, a hidden gem nested in a bowl of rolling hills in the heart of Dumfries and Galloway (Upper Nithsdale).
+
+This major land restoration project has transformed a former open cast coal mine into a spectacular artland and public park.
+
+The ecology of the site, and the materials found within it, inspired its design which is based around space, astronomy and cosmology.
+
+Today the site is cared for by the Crawick Multiverse Trust, a charity registered in Scotland (SCO39940). By visiting, you are helping preserve and maintain Crawick Multiverse for the present and for future generations to come.
+
+Did you know?
+•	Approximately 2,000 boulders have been used to create the Crawick Multiverse site
+•	The Sun amphitheatre can hold 5,000 spectators
+•	The site spans approximately 55 acres
+•	The Northpoint provides a 20-mile 360 degree panoramic
+"
+            android:textSize="15dp" />
+
+        <TextView
+            android:id="@+id/ACCHeading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="\n Access to Cosmic Collision"
+            android:textSize="25dp" />
+
+        <ImageView
+            android:id="@+id/ACCImageView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/comet_collisions_1" />
+
+        <TextView
+            android:id="@+id/ACCText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="The four huge standing stones here mark a junction in your journey.Do you branch off into the heart of Crawick Multiverse, or proceed upwards, along our Comet Walk, towards the spectacular views atop the Belvedere?
+            "
+            android:textSize="15dp" />
+
+        <TextView
+            android:id="@+id/CometWalkHeading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="\n Comet Walk"
+            android:textSize="25dp" />
+
+        <ImageView
+            android:id="@+id/CometWalkImageView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/comet_walk" />
+
+        <TextView
+            android:id="@+id/CometWalkText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="The Comet Walk takes you along a ridge with scalloped edges, four of which have edges of white-yellow sandstone to emulate comets’ tails. These are positioned so the comets are being pulled into their elliptical trajectories by the Sun, represented by the Amphitheatre at the heart of Crawick Multiverse.
+            "
+            android:textSize="15dp" />
+
+        <TextView
+            android:id="@+id/BelvedereHeading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="\n Belvedere"
+            android:textSize="25dp" />
+
+        <ImageView
+            android:id="@+id/BelvedereImageView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/belvedere" />
+
+        <TextView
+            android:id="@+id/BelvedereText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="The Belvedere, the highest point of Crawick Multiverse, and the northern lookout, offers a 360º view of the surrounding countryside and settlements. As you look from the top, along the north-south path you can see the nearby railroad viaduct and other distant landmarks. Atop the Belvedere sits a stone hand with a finger pointing at the sky, aiming directly at the North Star, Polaris.
+            "
+            android:textSize="15dp" />
+
+        <TextView
+            android:id="@+id/VoidHeading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="\n The Void \n"
+            android:textSize="25dp" />
+
+        <TextView
+            android:id="@+id/VoidText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Located next to the Belvedere is a connected feature – the Void. This mirrors the shape of the Belvedere above, inverted into the ground. Water sits in the centre of The Void, which features a stone island reached by a spiralling path. A third Shelter Seat sits close by – can you find it?"
+            android:textSize="15dp" />
+
+        <TextView
+            android:id="@+id/CCHeading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="\n Cosmic Collision"
+            android:textSize="25dp" />
+
+        <ImageView
+            android:id="@+id/CCImageView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/comet_collisions_2" />
+
+        <TextView
+            android:id="@+id/CCText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="The Crawick Multiverse’s most recent artwork is the stunning Cosmic Collisions, installed in summer 2017 to celebrate the second anniversary of the park opening.
+
+The Cosmic Collisions installation explores how some collisions can be incredibly destructive while others are highly creative. One of its key features is two large circular rusty saw blades, shaped like spiral galaxies crashing into each other.
+"
+            android:textSize="15dp" />
+
+        <TextView
+            android:id="@+id/AmphitheatreHeading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="\n Amphitheatre"
+            android:textSize="25dp" />
+
+        <ImageView
+            android:id="@+id/AmphitheatreImageView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/amphitheatre" />
+
+        <TextView
+            android:id="@+id/AmphitheatreText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="The Amphitheatre – which can hold 5,000 people – is at the heart of the Crawick Multiverse. It captures the beauty of a total eclipse, replicating its iconic shapes and forms with a circle of boulders and ridges, representing the Sun. The Amphitheatre faces due south, and two glittering lagoons add to its magic and drama.
+            "
+            android:textSize="15dp" />
+
+        <TextView
+            android:id="@+id/MosaicHeading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="\n Mosaic \n"
+            android:textSize="25dp" />
+
+        <TextView
+            android:id="@+id/MosaicText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="In 2016 Charles Jencks created a new artwork within the Amphitheatre, a mosaic titled ‘Sun Flare / Earth Shield’. The new installation represents the ‘dance of life and death’ between solar flares and the protective electromagnetism of the Earth."
+            android:textSize="15dp" />
+
+        <TextView
+            android:id="@+id/NorthSouthHeading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="\n North South Avenue"
+            android:textSize="25dp" />
+
+        <ImageView
+            android:id="@+id/NorthSouthImageView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/north_south_path" />
+
+        <TextView
+            android:id="@+id/NorthSouthText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="A north-south line splits the site precisely down the middle. This 400 metre path is bordered with large boulders and leads you to the site’s northern lookout. Intersection boulders mark additional pathways which run east and west and there are also two shelter seats constructed with huge boulders.
+
+The North / South Avenue aligns the Crawick Multiverse with the stars above. Stand here at night and gaze along the line of standing stones northwards to the highest point on the site. Look above this highpoint, 55 degrees up in the sky, and you will find The North Star, Polaris, marking due north.
+
+Our ancestors have built such stone monuments, aligned with the cosmos, for millennia.
+"
+            android:textSize="15dp" />
+
+        <TextView
+            android:id="@+id/OmphalosHeading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="\n Omphalos"
+            android:textSize="25dp" />
+
+        <ImageView
+            android:id="@+id/OmphalosImageView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/omphalos" />
+
+        <TextView
+            android:id="@+id/OmphalosText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="In classical Greece and in Jerusalem the Omphalos is the centre, or navel, of the world. This stone representation features v-shaped silhouettes which frame the cliff scallop overhead, while on the inside, special rocks signify the mythical and actual centre of the Earth."
+            android:textSize="15dp" />
+
+        <TextView
+            android:id="@+id/SuperClusterHeading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="\n Super Cluster"
+            android:textSize="25dp" />
+
+        <ImageView
+            android:id="@+id/SuperClusterImageView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/supercluster" />
+
+        <TextView
+            android:id="@+id/SuperClusterText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="This represents the Supercluster of galaxies to which the Milky Way belongs. Crawick’s very own Supercluster features a distinctive pattern of abstract triangles which aim south-west to create similar shadow patterns, representing the forming of our universe and its place within the cosmos."
+            android:textSize="15dp" />
+
+        <TextView
+            android:id="@+id/MultiverseHeading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="\n Multiverse"
+            android:textSize="25dp" />
+
+        <ImageView
+            android:id="@+id/MultiverseImageView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/multiverse1" />
+
+        <TextView
+            android:id="@+id/MultiverseText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="The Multiverse is a corkscrew path constructed mostly from mudstone composed of black and white layers. It represents the whole ensemble of universes, and the stones are carved with lines representing the different types of universe and their different fates.
+
+The concept of the multiverse sits at the interface of science and philosophy. Is our universe and everything in it – all the stars, planets, nebulae, and galaxies that we can see – just one of perhaps an infinite number of other universes? If so, do they share the same laws of physics as our universe, or are they all utterly unique?
+"
+            android:textSize="15dp" />
+
+        <TextView
+            android:id="@+id/MWHeading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="\n Milky Way"
+            android:textSize="25dp" />
+
+        <ImageView
+            android:id="@+id/MWImageView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/milky_way" />
+
+        <TextView
+            android:id="@+id/MWText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="The spiral galaxies of Andromeda and our Milky Way are represented with two towering mounds of earth standing at 25 and 15 metres high, with boulders atop each.
+
+Our galaxy, the Milky Way, contains hundreds of billions of stars, of which the Sun is just one. Recent scientific advances have revealed that almost every star in our galaxy will have many planets around it, some orbiting the “Goldilocks Zone” where conditions are not too hot, not too cold, but just right for liquid water and maybe even alien life.
+
+The Milky Way and the larger Andromeda galaxy mounds each have lagoons which will fill with water and add to their striking visual impact.
+"
+            android:textSize="15dp" />
+
+        <TextView
+            android:id="@+id/AndromedaHeading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="\n Andromeda"
+            android:textSize="25dp" />
+
+        <ImageView
+            android:id="@+id/AndromedaImageView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/andromeda_cropped" />
+
+        <TextView
+            android:id="@+id/AndromedaText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="The spiral galaxies of Andromeda and our Milky Way are represented with two towering mounds of earth standing at 25 and 15 metres high, with boulders atop each.
+
+Unlike most of the other 100 billion galaxies which are travelling away from us, Andromeda and the Milky Way are heading towards one another at speed and are predicted to be drawn together by gravity in four billion years’ time. The galaxy mounds represent this ‘cosmic ballet’ of the two galaxies coming together and stripping one another into long lines of stars and planets. Red sandstone boulders at the base signify the long lines of matter, whilst giant boulders on top of the two spiralling mounds symbolise other cosmological events and phenomena such as black holes.
+"
+            android:textSize="15dp" />
+
+    </LinearLayout>
 </ScrollView>
