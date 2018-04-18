@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "490451736717",
+    "firebase_url": "https://avid-relic-161920.firebaseio.com",
+    "project_id": "avid-relic-161920",
+    "storage_bucket": "avid-relic-161920.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:490451736717:android:a00de1bf03948ddc",
+        "android_client_info": {
+          "package_name": "com.example.work.crawickmultiverse"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "490451736717-obbl0t0o7h97gruelqv3upkfot9g7crf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.work.crawickmultiverse",
+            "certificate_hash": "ef45597df6ce3eed9637291e75224658d2d3cffb"
+          }
+        },
+        {
+          "client_id": "490451736717-alrk81ior9gh17uror4rkie6m54ideun.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC4hlI96A_72-SqEV78GOO5FG2SjVq9tF4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "490451736717-alrk81ior9gh17uror4rkie6m54ideun.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
