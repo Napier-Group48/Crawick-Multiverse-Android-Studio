@@ -76,12 +76,6 @@ public class GpsFragment extends Fragment implements OnMapReadyCallback, OnMyLoc
         mMap.setMyLocationEnabled(true);
         mMap.getUiSettings().setMyLocationButtonEnabled(true);
 
-
-
-
-
-
-
         // Add a marker in Sydney and move the camera
 
         LatLng crawickMulti = new LatLng(55.3816164, -3.9329154);
@@ -119,8 +113,6 @@ public class GpsFragment extends Fragment implements OnMapReadyCallback, OnMyLoc
 
 
        final Circle circle = mMap.addCircle(new CircleOptions().center(carPark).radius(50).strokeColor(Color.BLUE).fillColor(0x220000FF).strokeWidth(5.0f));
-
-
 
         //mMap.moveCamera(CameraUpdateFactory.newLatLng(crawickMulti));
         float zoomLevel = 16.0f; //This goes up to 21
