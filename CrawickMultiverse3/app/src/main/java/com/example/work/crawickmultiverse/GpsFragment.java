@@ -201,8 +201,6 @@ public class GpsFragment extends Fragment implements OnMapReadyCallback, OnMyLoc
        final Circle lidlCircle = mMap.addCircle(new CircleOptions().center(testLidl).radius(25).strokeColor(Color.BLUE).fillColor(0x220000FF).strokeWidth(5.0f));
         final Circle marcusCircle = mMap.addCircle(new CircleOptions().center(testMarcus).radius(25).strokeColor(Color.BLUE).fillColor(0x220000FF).strokeWidth(5.0f));
 
-
-
         //mMap.moveCamera(CameraUpdateFactory.newLatLng(crawickMulti));
         float zoomLevel = 16.0f; //This goes up to 21
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(crawickMulti, zoomLevel));

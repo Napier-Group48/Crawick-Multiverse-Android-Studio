@@ -23,7 +23,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:src="@drawable/entrance1" />
+            android:src="@drawable/entrance_1" />
 
         <TextView
             android:id="@+id/entranceText"
@@ -189,8 +189,15 @@ The Cosmic Collisions installation explores how some collisions can be incredibl
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:text="\n Mosaic \n"
+            android:text="\n Mosaic"
             android:textSize="25dp" />
+
+        <ImageView
+            android:id="@+id/MosaicImageView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/mosaic" />
 
         <TextView
             android:id="@+id/MosaicText"
@@ -282,12 +289,13 @@ Our ancestors have built such stone monuments, aligned with the cosmos, for mill
             android:text="\n Multiverse"
             android:textSize="25dp" />
 
+
         <ImageView
             android:id="@+id/MultiverseImageView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center_horizontal"
-            android:src="@drawable/multiverse1" />
+            android:src="@drawable/multiverse_1" />
 
         <TextView
             android:id="@+id/MultiverseText"
