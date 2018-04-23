@@ -1,6 +1,8 @@
 package com.example.work.crawickmultiverse;
 
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.location.Location;
@@ -17,8 +19,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
+import android.Manifest;
 
-import com.firebase.geofire.GeoQuery;
+
+import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
@@ -31,12 +35,12 @@ import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-
 /**
  * A simple {@link Fragment} subclass.
  */
 public class GpsFragment extends Fragment implements OnMapReadyCallback, OnMyLocationButtonClickListener, OnMyLocationClickListener, ActivityCompat.OnRequestPermissionsResultCallback {
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 1;
+    public static final int MY_PERMISSIONS_REQUEST_LOCATION = 99;
     private GoogleMap mMap;
     SupportMapFragment mapFragment;
     private boolean mPermissionDenied = false;
@@ -45,11 +49,86 @@ public class GpsFragment extends Fragment implements OnMapReadyCallback, OnMyLoc
         // Required empty public constructor
     }
 
+    public boolean checkLocationPermission() {
+        if (ContextCompat.checkSelfPermission(getContext(),
+                Manifest.permission.ACCESS_FINE_LOCATION)
+                != PackageManager.PERMISSION_GRANTED) {
+
+            // Should we show an explanation?
+            if (ActivityCompat.shouldShowRequestPermissionRationale(getActivity(),
+                    Manifest.permission.ACCESS_FINE_LOCATION)) {
+
+                // Show an explanation to the user *asynchronously* -- don't block
+                // this thread waiting for the user's response! After the user
+                // sees the explanation, try again to request the permission.
+                new AlertDialog.Builder(getContext())
+                        .setTitle(R.string.title_activity_maps)
+                        .setMessage(R.string.title_activity_maps)
+                        .setPositiveButton(R.string.common_signin_button_text, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                //Prompt the user once explanation has been shown
+                                ActivityCompat.requestPermissions(getActivity(),
+                                        new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
+                                        MY_PERMISSIONS_REQUEST_LOCATION);
+                            }
+                        })
+                        .create()
+                        .show();
+
+            } else {
+                // No explanation needed, we can request the permission.
+                ActivityCompat.requestPermissions(getActivity(),
+                        new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
+                        MY_PERMISSIONS_REQUEST_LOCATION);
+            }
+            return false;
+        } else {
+            return true;
+        }
+    }
+    @Override
+    public void onRequestPermissionsResult(int requestCode,
+                                           String permissions[], int[] grantResults) {
+        switch (requestCode) {
+            case MY_PERMISSIONS_REQUEST_LOCATION: {
+                // If request is cancelled, the result arrays are empty.
+                if (grantResults.length > 0
+                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+
+                    // permission was granted, yay! Do the
+                    // location-related task you need to do.
+                    if (ContextCompat.checkSelfPermission(getContext(),
+                            Manifest.permission.ACCESS_FINE_LOCATION)
+                            == PackageManager.PERMISSION_GRANTED) {
+                        //Request location updates:
+
+
+                    }
+
+                } else {
+
+                    // permission denied, boo! Disable the
+                    // functionality that depends on this permission.
+                }
+                return;
+            }
+
+        }
+    }
+
+
+
+
+
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_gps, container, false);
+        checkLocationPermission();
         return v;
     }
 
@@ -58,6 +137,8 @@ public class GpsFragment extends Fragment implements OnMapReadyCallback, OnMyLoc
         SupportMapFragment mapFragment = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
         super.onViewCreated(view, savedInstanceState);
+
+
     }
 
     public void onMapReady(GoogleMap googleMap) {
@@ -76,12 +157,6 @@ public class GpsFragment extends Fragment implements OnMapReadyCallback, OnMyLoc
         mMap.setMyLocationEnabled(true);
         mMap.getUiSettings().setMyLocationButtonEnabled(true);
 
-
-
-
-
-
-
         // Add a marker in Sydney and move the camera
 
         LatLng crawickMulti = new LatLng(55.3816164, -3.9329154);
@@ -99,7 +174,8 @@ public class GpsFragment extends Fragment implements OnMapReadyCallback, OnMyLoc
         LatLng cosmicCollision = new LatLng(55.38209, -3.93233);
         LatLng rockPoint = new LatLng(55.38159, -3.93032);
         final LatLng carPark = new LatLng(55.37984, -3.93291);
-
+        final LatLng testLidl = new LatLng(55.931568, -3.236677);
+        final LatLng testMarcus = new LatLng(55.99241350661053, -3.742613494971124);
 
         mMap.addMarker(new MarkerOptions().position(crawickMulti).title("Crawick Multiverse"));
         mMap.addMarker(new MarkerOptions().position(omphalosTop).title("Omphalos Top"));
@@ -117,8 +193,13 @@ public class GpsFragment extends Fragment implements OnMapReadyCallback, OnMyLoc
         mMap.addMarker(new MarkerOptions().position(rockPoint).title("4 Rock Point"));
         mMap.addMarker(new MarkerOptions().position(carPark).title("Car Park"));
 
+        mMap.addMarker(new MarkerOptions().position(testLidl).title("Lidl Test"));
+        mMap.addMarker(new MarkerOptions().position(testMarcus).title("Marcus Test"));
 
-       final Circle circle = mMap.addCircle(new CircleOptions().center(carPark).radius(50).strokeColor(Color.BLUE).fillColor(0x220000FF).strokeWidth(5.0f));
+
+       final Circle circle = mMap.addCircle(new CircleOptions().center(carPark).radius(25).strokeColor(Color.BLUE).fillColor(0x220000FF).strokeWidth(5.0f));
+       final Circle lidlCircle = mMap.addCircle(new CircleOptions().center(testLidl).radius(25).strokeColor(Color.BLUE).fillColor(0x220000FF).strokeWidth(5.0f));
+        final Circle marcusCircle = mMap.addCircle(new CircleOptions().center(testMarcus).radius(25).strokeColor(Color.BLUE).fillColor(0x220000FF).strokeWidth(5.0f));
 
 
 
@@ -132,6 +213,8 @@ public class GpsFragment extends Fragment implements OnMapReadyCallback, OnMyLoc
 
             public boolean onMyLocationButtonClick() {
                 float [] distance = new float[2];
+                float [] Harrydistance = new float[2];
+                float [] Marcusdistance = new float[2];
 
                 double lat = mMap.getCameraPosition().target.latitude;
                 double lng = mMap.getCameraPosition().target.longitude;
@@ -146,6 +229,24 @@ public class GpsFragment extends Fragment implements OnMapReadyCallback, OnMyLoc
                 else {
                     Toast.makeText(getActivity(), "You are Standing out of the car park", Toast.LENGTH_LONG).show();
                 }
+
+                Location.distanceBetween(lat, lng, lidlCircle.getCenter().latitude, lidlCircle.getCenter().longitude, Harrydistance);
+                if ( Harrydistance[0] <= lidlCircle.getRadius())
+                {
+                    Toast.makeText(getActivity(), "You are in the Lidl Circle", Toast.LENGTH_LONG).show();
+                }
+                else {
+                    Toast.makeText(getActivity(), "You are out of the Lidl Circle", Toast.LENGTH_LONG).show();
+                }
+
+                Location.distanceBetween(lat, lng, marcusCircle.getCenter().latitude, marcusCircle.getCenter().longitude, Marcusdistance);
+                if ( Harrydistance[0] <= marcusCircle.getRadius())
+                {
+                    Toast.makeText(getActivity(), "You are in the Marcus Circle", Toast.LENGTH_LONG).show();
+                }
+                else {
+                    Toast.makeText(getActivity(), "You are out of the Marcus Circle", Toast.LENGTH_LONG).show();
+                }
                 return false;
             }
         });
@@ -156,6 +257,8 @@ public class GpsFragment extends Fragment implements OnMapReadyCallback, OnMyLoc
             @Override
             public void onMyLocationChange(Location location) {
                 float [] distance = new float[2];
+                float [] Harrydistance = new float[2];
+                float [] Marcusdistance = new float[2];
 
                 double lat = mMap.getCameraPosition().target.latitude;
                 double lng = mMap.getCameraPosition().target.longitude;
@@ -171,6 +274,17 @@ public class GpsFragment extends Fragment implements OnMapReadyCallback, OnMyLoc
                 //{
                   //  Toast.makeText(getActivity(), "You are Standing out of the car park", Toast.LENGTH_LONG).show();
                 //}
+                Location.distanceBetween(location.getLatitude(), location.getLongitude(), lidlCircle.getCenter().latitude, lidlCircle.getCenter().longitude, Harrydistance);
+                if ( Harrydistance[0] <= lidlCircle.getRadius())
+                {
+                    Toast.makeText(getActivity(), "You are in the Lidl Circle", Toast.LENGTH_LONG).show();
+                }
+                Location.distanceBetween(location.getLatitude(), location.getLongitude(), marcusCircle.getCenter().latitude, marcusCircle.getCenter().longitude, Marcusdistance);
+                if ( Harrydistance[0] <= marcusCircle.getRadius())
+                {
+                    Toast.makeText(getActivity(), "You are in the Marcus Circle", Toast.LENGTH_LONG).show();
+                }
+
 
             }
         });
