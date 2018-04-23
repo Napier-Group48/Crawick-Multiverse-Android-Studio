@@ -107,7 +107,7 @@ Did you know?
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center_horizontal"
-            android:src="@drawable/belvedere" />
+            android:src="@drawable/belvedereimage" />
 
         <TextView
             android:id="@+id/BelvedereText"
@@ -197,7 +197,7 @@ The Cosmic Collisions installation explores how some collisions can be incredibl
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center_horizontal"
-            android:src="@drawable/mosaic" />
+            android:src="@drawable/mosaicimage" />
 
         <TextView
             android:id="@+id/MosaicText"
