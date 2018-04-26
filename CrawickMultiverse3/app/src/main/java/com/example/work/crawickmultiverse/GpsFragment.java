@@ -278,7 +278,7 @@ public class GpsFragment extends Fragment implements OnMapReadyCallback, OnMyLoc
                     Toast.makeText(getActivity(), "You are in the Lidl Circle", Toast.LENGTH_LONG).show();
                 }
                 Location.distanceBetween(location.getLatitude(), location.getLongitude(), marcusCircle.getCenter().latitude, marcusCircle.getCenter().longitude, Marcusdistance);
-                if ( Harrydistance[0] <= marcusCircle.getRadius())
+                if ( Marcusdistance[0] <= marcusCircle.getRadius())
                 {
                     Toast.makeText(getActivity(), "You are in the Marcus Circle", Toast.LENGTH_LONG).show();
                 }
