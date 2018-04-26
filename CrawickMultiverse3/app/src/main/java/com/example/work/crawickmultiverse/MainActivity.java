@@ -157,8 +157,6 @@ public class MainActivity extends AppCompatActivity
             setFragment(secondBurgerFragment);
         } else if (id == R.id.nav_third_layout) {
           setFragment(thirdBurgerFragment);
-        } else if (id == R.id.nav_manage) {
-
         } else if (id == R.id.nav_share) {
             setFragment(surveyBurgerFragment);
         } else if (id == R.id.nav_send) {
