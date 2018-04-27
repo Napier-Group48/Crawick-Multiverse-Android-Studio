@@ -2,10 +2,16 @@ package com.example.work.crawickmultiverse;
 
 
 import android.app.AlertDialog;
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.location.Location;
+import android.location.LocationManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -13,6 +19,8 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.app.NotificationCompat;
+import android.support.v4.app.NotificationManagerCompat;
 import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -41,12 +49,32 @@ import com.google.android.gms.maps.model.MarkerOptions;
 public class GpsFragment extends Fragment implements OnMapReadyCallback, OnMyLocationButtonClickListener, OnMyLocationClickListener, ActivityCompat.OnRequestPermissionsResultCallback {
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 1;
     public static final int MY_PERMISSIONS_REQUEST_LOCATION = 99;
+    private Context mContext;
     private GoogleMap mMap;
     SupportMapFragment mapFragment;
     private boolean mPermissionDenied = false;
 
     public GpsFragment() {
         // Required empty public constructor
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        mContext = context;
+    }
+
+    public void initChannels(Context context) {
+        if (Build.VERSION.SDK_INT < 26) {
+            return;
+        }
+        NotificationManager notificationManager =
+                (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+        NotificationChannel channel = new NotificationChannel("default",
+                "Channel name",
+                NotificationManager.IMPORTANCE_DEFAULT);
+        channel.setDescription("Channel description");
+        notificationManager.createNotificationChannel(channel);
     }
 
     public boolean checkLocationPermission() {
@@ -176,6 +204,7 @@ public class GpsFragment extends Fragment implements OnMapReadyCallback, OnMyLoc
         final LatLng carPark = new LatLng(55.37984, -3.93291);
         final LatLng testLidl = new LatLng(55.931568, -3.236677);
         final LatLng testMarcus = new LatLng(55.99241350661053, -3.742613494971124);
+        final LatLng napierTest = new LatLng(55.932852,-3.213917);
 
         mMap.addMarker(new MarkerOptions().position(crawickMulti).title("Crawick Multiverse"));
         mMap.addMarker(new MarkerOptions().position(omphalosTop).title("Omphalos Top"));
@@ -195,55 +224,70 @@ public class GpsFragment extends Fragment implements OnMapReadyCallback, OnMyLoc
 
         mMap.addMarker(new MarkerOptions().position(testLidl).title("Lidl Test"));
         mMap.addMarker(new MarkerOptions().position(testMarcus).title("Marcus Test"));
+        mMap.addMarker(new MarkerOptions().position(napierTest).title("Edinburgh Napier University"));
 
 
        final Circle circle = mMap.addCircle(new CircleOptions().center(carPark).radius(25).strokeColor(Color.BLUE).fillColor(0x220000FF).strokeWidth(5.0f));
        final Circle lidlCircle = mMap.addCircle(new CircleOptions().center(testLidl).radius(25).strokeColor(Color.BLUE).fillColor(0x220000FF).strokeWidth(5.0f));
         final Circle marcusCircle = mMap.addCircle(new CircleOptions().center(testMarcus).radius(25).strokeColor(Color.BLUE).fillColor(0x220000FF).strokeWidth(5.0f));
+        final Circle napierCircle = mMap.addCircle(new CircleOptions().center(napierTest).radius(25).strokeColor(Color.BLUE).fillColor(0x220000FF).strokeWidth(5.0f));
 
         //mMap.moveCamera(CameraUpdateFactory.newLatLng(crawickMulti));
         float zoomLevel = 16.0f; //This goes up to 21
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(crawickMulti, zoomLevel));
 
-
         final Location location = mMap.getMyLocation();
-        mMap.setOnMyLocationButtonClickListener(new OnMyLocationButtonClickListener() {
 
+
+        mMap.setOnMyLocationButtonClickListener(new OnMyLocationButtonClickListener() {
             public boolean onMyLocationButtonClick() {
+
                 float [] distance = new float[2];
                 float [] Harrydistance = new float[2];
                 float [] Marcusdistance = new float[2];
+                float [] NapierDistance = new float[2];
+
 
                 double lat = mMap.getCameraPosition().target.latitude;
                 double lng = mMap.getCameraPosition().target.longitude;
                 Toast.makeText(getActivity(), "You are standing at " + lat + " " + lng,
                         Toast.LENGTH_LONG).show();
 
-                Location.distanceBetween(lat, lng, circle.getCenter().latitude, circle.getCenter().longitude, distance);
-                if ( distance[0] <= circle.getRadius())
-                {
-                    Toast.makeText(getActivity(), "You are Standing at the car park", Toast.LENGTH_LONG).show();
-                }
-                else {
-                    Toast.makeText(getActivity(), "You are Standing out of the car park", Toast.LENGTH_LONG).show();
-                }
+//                Location.distanceBetween(lat, lng, circle.getCenter().latitude, circle.getCenter().longitude, distance);
+//                if ( distance[0] <= circle.getRadius())
+//                {
+//                    Toast.makeText(getActivity(), "You are Standing at the car park", Toast.LENGTH_LONG).show();
+//
+//                }
+//                else {
+//                    Toast.makeText(getActivity(), "You are Standing out of the car park", Toast.LENGTH_LONG).show();
+//                }
+//
+//                Location.distanceBetween(lat, lng, lidlCircle.getCenter().latitude, lidlCircle.getCenter().longitude, Harrydistance);
+//                if ( Harrydistance[0] <= lidlCircle.getRadius())
+//                {
+//                    Toast.makeText(getActivity(), "You are in the Lidl Circle", Toast.LENGTH_LONG).show();
+//                }
+//                else {
+//                    Toast.makeText(getActivity(), "You are out of the Lidl Circle", Toast.LENGTH_LONG).show();
+//                }
+//
+//                Location.distanceBetween(lat, lng, marcusCircle.getCenter().latitude, marcusCircle.getCenter().longitude, Marcusdistance);
+//                if ( Marcusdistance[0] <= marcusCircle.getRadius())
+//                {
+//                    Toast.makeText(getActivity(), "You are in the Marcus Circle", Toast.LENGTH_LONG).show();
+//                }
+//                else {
+//                    Toast.makeText(getActivity(), "You are out of the Marcus Circle", Toast.LENGTH_LONG).show();
+//                }
 
-                Location.distanceBetween(lat, lng, lidlCircle.getCenter().latitude, lidlCircle.getCenter().longitude, Harrydistance);
-                if ( Harrydistance[0] <= lidlCircle.getRadius())
+                Location.distanceBetween(lat, lng, napierCircle.getCenter().latitude, napierCircle.getCenter().longitude, NapierDistance);
+                if ( NapierDistance[0] <= napierCircle.getRadius())
                 {
-                    Toast.makeText(getActivity(), "You are in the Lidl Circle", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getActivity(), "You are in Napier University", Toast.LENGTH_LONG).show();
                 }
                 else {
-                    Toast.makeText(getActivity(), "You are out of the Lidl Circle", Toast.LENGTH_LONG).show();
-                }
-
-                Location.distanceBetween(lat, lng, marcusCircle.getCenter().latitude, marcusCircle.getCenter().longitude, Marcusdistance);
-                if ( Harrydistance[0] <= marcusCircle.getRadius())
-                {
-                    Toast.makeText(getActivity(), "You are in the Marcus Circle", Toast.LENGTH_LONG).show();
-                }
-                else {
-                    Toast.makeText(getActivity(), "You are out of the Marcus Circle", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getActivity(), "You are out of Napier University", Toast.LENGTH_LONG).show();
                 }
                 return false;
             }
@@ -257,6 +301,7 @@ public class GpsFragment extends Fragment implements OnMapReadyCallback, OnMyLoc
                 float [] distance = new float[2];
                 float [] Harrydistance = new float[2];
                 float [] Marcusdistance = new float[2];
+                float [] NapierDistance = new float[2];
 
                 double lat = mMap.getCameraPosition().target.latitude;
                 double lng = mMap.getCameraPosition().target.longitude;
@@ -281,6 +326,31 @@ public class GpsFragment extends Fragment implements OnMapReadyCallback, OnMyLoc
                 if ( Marcusdistance[0] <= marcusCircle.getRadius())
                 {
                     Toast.makeText(getActivity(), "You are in the Marcus Circle", Toast.LENGTH_LONG).show();
+                }
+                Location.distanceBetween(location.getLatitude(), location.getLongitude(), napierCircle.getCenter().latitude, napierCircle.getCenter().longitude, NapierDistance);
+                if ( NapierDistance[0] <= napierCircle.getRadius())
+                {
+                    Toast.makeText(getActivity(), "You are in Napier University", Toast.LENGTH_LONG).show();
+                    int notificationId = 1;
+                    NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(mContext, "default")
+                            .setSmallIcon(R.drawable.ic_gps_fixed_black_24dp)
+                            .setContentTitle("Crawick Multiverse")
+                            .setContentText("You are standing at Napier University")
+                            .setPriority(NotificationCompat.PRIORITY_DEFAULT);
+                    NotificationManagerCompat notificationManager = NotificationManagerCompat.from(getActivity());
+                    notificationManager.notify(notificationId, notificationBuilder.build());
+                }
+                else
+                {
+                    Toast.makeText(getActivity(), "You are out of Napier University", Toast.LENGTH_LONG).show();
+                    int notificationId = 1;
+                    NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(mContext, "default")
+                            .setSmallIcon(R.drawable.ic_gps_fixed_black_24dp)
+                            .setContentTitle("Crawick Multiverse")
+                            .setContentText("You are standing outside Napier University")
+                            .setPriority(NotificationCompat.PRIORITY_DEFAULT);
+                    NotificationManagerCompat notificationManager = NotificationManagerCompat.from(getActivity());
+                    notificationManager.notify(notificationId, notificationBuilder.build());
                 }
 
 

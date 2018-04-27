@@ -153,8 +153,6 @@ public class MainActivity extends AppCompatActivity
 
         if (id == R.id.nav_first_layout) { //This is the code for the Hamburger Menu
             setFragment(firstBurgerFragment);
-        } else if (id == R.id.nav_second_layout) {
-            setFragment(secondBurgerFragment);
         } else if (id == R.id.nav_third_layout) {
           setFragment(thirdBurgerFragment);
         } else if (id == R.id.nav_share) {
