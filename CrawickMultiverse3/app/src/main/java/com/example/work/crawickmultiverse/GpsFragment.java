@@ -11,6 +11,7 @@ import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.location.Location;
 import android.location.LocationManager;
+import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -130,8 +131,6 @@ public class GpsFragment extends Fragment implements OnMapReadyCallback, OnMyLoc
                             Manifest.permission.ACCESS_FINE_LOCATION)
                             == PackageManager.PERMISSION_GRANTED) {
                         //Request location updates:
-
-
                     }
 
                 } else {
@@ -302,7 +301,7 @@ public class GpsFragment extends Fragment implements OnMapReadyCallback, OnMyLoc
                 float [] Harrydistance = new float[2];
                 float [] Marcusdistance = new float[2];
                 float [] NapierDistance = new float[2];
-
+                final MediaPlayer mp = MediaPlayer.create(getActivity(), R.raw.bing);
                 double lat = mMap.getCameraPosition().target.latitude;
                 double lng = mMap.getCameraPosition().target.longitude;
                 //Toast.makeText(getActivity(), "You are standing at " + lat + " " + lng,
@@ -331,6 +330,7 @@ public class GpsFragment extends Fragment implements OnMapReadyCallback, OnMyLoc
                 if ( NapierDistance[0] <= napierCircle.getRadius())
                 {
                     Toast.makeText(getActivity(), "You are in Napier University", Toast.LENGTH_LONG).show();
+                    mp.start();
                     int notificationId = 1;
                     NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(mContext, "default")
                             .setSmallIcon(R.drawable.ic_gps_fixed_black_24dp)
@@ -343,6 +343,7 @@ public class GpsFragment extends Fragment implements OnMapReadyCallback, OnMyLoc
                 else
                 {
                     Toast.makeText(getActivity(), "You are out of Napier University", Toast.LENGTH_LONG).show();
+                    //mp.start();
                     int notificationId = 1;
                     NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(mContext, "default")
                             .setSmallIcon(R.drawable.ic_gps_fixed_black_24dp)
