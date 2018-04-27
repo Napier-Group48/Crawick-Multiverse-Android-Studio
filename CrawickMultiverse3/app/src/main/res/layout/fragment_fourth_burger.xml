@@ -1,32 +1,317 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="fill_parent"
     android:layout_above="@id/nav_main"
-    tools:context=".SurveyBurgerFragment">
+    android:layout_height="fill_parent"
+    tools:context=".HomeFragment">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Survey page" />
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_above="@id/nav_main"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/editText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:ems="10"
-        android:inputType="textMultiLine"
-        android:text="Answer"/>
+        <TextView
+            android:id="@+id/entranceHeading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Please do our survey!"
+            android:textSize="25dp" />
 
-    <Button
-        android:id="@+id/submit_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity=""
+        <TextView
+            android:id="@+id/Question1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:text="1. What was the date of you visit? \n"
+            android:textSize="15dp" />
 
-        android:gravity="center_vertical|center_horizontal"
-        android:text="Submit" />
+        <EditText
+            android:id="@+id/editText1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="7"
+            android:inputType="textMultiLine"
+            android:text="Answer"/>
 
-</FrameLayout>
+        <TextView
+            android:id="@+id/Question2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:text="\n 2. How many people were in your group? \n"
+            android:textSize="15dp" />
+
+        <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <RadioButton android:id="@+id/radio_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1"/>
+            <RadioButton android:id="@+id/radio_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2"/>
+            <RadioButton android:id="@+id/radio_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3-4"/>
+            <RadioButton android:id="@+id/radio_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="5-9"/>
+            <RadioButton android:id="@+id/radio_5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="10+"/>
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/Question3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:text="\n 3. How old was the youngest person with you today? \n"
+            android:textSize="15dp" />
+
+        <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <RadioButton android:id="@+id/radio_6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Under 5"/>
+            <RadioButton android:id="@+id/radio_7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="5-11"/>
+            <RadioButton android:id="@+id/radio_8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="12-17"/>
+            <RadioButton android:id="@+id/radio_9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="18-24"/>
+            <RadioButton android:id="@+id/radio_10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="35-44"/>
+            <RadioButton android:id="@+id/radio_11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="45-54"/>
+            <RadioButton android:id="@+id/radio_12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="55+"/>
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/Question4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:text="\n 4. How old was the oldest person with you today? \n"
+            android:textSize="15dp" />
+
+        <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <RadioButton android:id="@+id/radio_13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Under 5"/>
+            <RadioButton android:id="@+id/radio_14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="5-11"/>
+            <RadioButton android:id="@+id/radio_15"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="12-17"/>
+            <RadioButton android:id="@+id/radio_16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="18-24"/>
+            <RadioButton android:id="@+id/radio_17"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="35-44"/>
+            <RadioButton android:id="@+id/radio_18"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="45-54"/>
+            <RadioButton android:id="@+id/radio_19"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="55+"/>
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/Question5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:text="\n 5. How far have you travelled? \n"
+            android:textSize="15dp" />
+
+        <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <RadioButton android:id="@+id/radio_20"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Not far"/>
+            <RadioButton android:id="@+id/radio_21"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="10-20 miles"/>
+            <RadioButton android:id="@+id/radio_22"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="30-60 miles"/>
+            <RadioButton android:id="@+id/radio_23"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="60+ miles"/>
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/Question6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:text="\n 6. What was you experience of Crawick Multiverse? \n"
+            android:textSize="15dp" />
+
+        <EditText
+            android:id="@+id/editText2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="7"
+            android:inputType="textMultiLine"
+            android:text="Answer"/>
+
+        <TextView
+            android:id="@+id/Question7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:text="\n 7. What did you feel while exploring Crawick Multiverse? \n"
+            android:textSize="15dp" />
+
+        <EditText
+            android:id="@+id/editText3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="7"
+            android:inputType="textMultiLine"
+            android:text="Answer"/>
+
+        <TextView
+            android:id="@+id/Question8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:text="\n 8. How did you find out about Crawick Multiverse? \n"
+            android:textSize="15dp" />
+
+        <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <RadioButton android:id="@+id/radio_24"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Local Knowledge"/>
+            <RadioButton android:id="@+id/radio_25"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Social Media"/>
+            <RadioButton android:id="@+id/radio_26"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Internet Search"/>
+            <RadioButton android:id="@+id/radio_27"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Other (Please specify below)"/>
+        </RadioGroup>
+
+        <EditText
+            android:id="@+id/editText4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="7"
+            android:inputType="textMultiLine"
+            android:text="Answer"/>
+
+        <TextView
+            android:id="@+id/Question9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:text="\n 9. Did you download the app before your visit? \n"
+            android:textSize="15dp" />
+
+        <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+        <RadioButton android:id="@+id/radio_28"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Yes"/>
+        <RadioButton android:id="@+id/radio_29"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="No"/>
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/Question10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:text="\n 10. Did this app help improve your experience of Crawick Multiverse? \n"
+            android:textSize="15dp" />
+
+        <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <RadioButton android:id="@+id/radio_30"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Yes"/>
+            <RadioButton android:id="@+id/radio_31"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="No"/>
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/submit_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="Submit" />
+
+        <TextView
+            android:id="@+id/ExtraLine1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="\n"
+            android:textSize="25dp" />
+    </LinearLayout>
+</ScrollView>
