@@ -60,7 +60,7 @@ public class SurveyBurgerFragment extends Fragment
 
       android.util.Log.i("Send email", "");
 
-      String[] TO = {"ross.houliston1@gmail.com"};
+      String[] TO = {"napier.crawick2018@gmail.com"};
       //String[] CC = {"ross.houliston1@gmail.com"};
       android.content.Intent emailIntent = new android.content.Intent(android.content.Intent.ACTION_SEND);
       emailIntent.setData(android.net.Uri.parse("mailto:"));
@@ -104,6 +104,15 @@ public class SurveyBurgerFragment extends Fragment
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
        final View v = inflater.inflate(R.layout.fragment_fourth_burger, container, false);
+       android.app.AlertDialog.Builder dlgAlert  = new android.app.AlertDialog.Builder(getContext());
+       dlgAlert.setMessage("Please answer ALL questions - your feedback is important to us.");
+       dlgAlert.setTitle("Crawick Multiverse");
+       dlgAlert.setPositiveButton("OK", null);
+       dlgAlert.setCancelable(true);
+       dlgAlert.create().show();
+
+
+
 
          radioGroup1 = (RadioGroup) v.findViewById(R.id.NumberOfPeopleInGroup);
          radioGroup2 = (RadioGroup) v.findViewById(R.id.YoungestPersonPresent);
