@@ -44,19 +44,50 @@ public class SurveyBurgerFragment extends Fragment
     }
 
     protected void sendEmail() {
+        final String question1 = ((android.widget.EditText)getView().findViewById(R.id.editText1)).getText().toString();
+        final String question6 = ((android.widget.EditText)getView().findViewById(R.id.editText2)).getText().toString();
+        final String question7 = ((android.widget.EditText)getView().findViewById(R.id.editText3)).getText().toString();
+        final String question8 = ((android.widget.EditText)getView().findViewById(R.id.editText4)).getText().toString();
+
+        Bundle extras = new Bundle();
+        extras.putString("Number of People in Group: ", radioButton.getText().toString());
+        extras.putString("Youngest Person Present: ", radioButton2.getText().toString());
+        extras.putString("Oldest Person Present: ", radioButton3.getText().toString());
+        extras.putString("How Far Have You Travelled: ", radioButton4.getText().toString());
+        extras.putString("How Did You Find Out About Crawick Multiverse: ", radioButton5.getText().toString());
+        extras.putString("Did You Download the App before your vist?: ", radioButton6.getText().toString());
+        extras.putString("Did the App improve your experience at Crawick Multiverse?: ", radioButton7.getText().toString());
+
       android.util.Log.i("Send email", "");
 
       String[] TO = {"ross.houliston1@gmail.com"};
-      String[] CC = {"ross.houliston1@gmail.com"};
+      //String[] CC = {"ross.houliston1@gmail.com"};
       android.content.Intent emailIntent = new android.content.Intent(android.content.Intent.ACTION_SEND);
       emailIntent.setData(android.net.Uri.parse("mailto:"));
       emailIntent.setType("text/plain");
 
 
       emailIntent.putExtra(android.content.Intent.EXTRA_EMAIL, TO);
-      emailIntent.putExtra(android.content.Intent.EXTRA_CC, CC);
-      emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Your subject");
-      emailIntent.putExtra(android.content.Intent.EXTRA_TEXT, radioButton.getText());
+      //emailIntent.putExtra(android.content.Intent.EXTRA_CC, CC);
+      emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Crawick Multiverse Survey");
+      emailIntent.putExtra(android.content.Intent.EXTRA_TEXT,
+
+      "1. What was the date of your visit?: " + question1
+      + "\n" + "2. Number of People in Group: " + radioButton.getText().toString()
+      + "\n" + "3. Youngest Person Present: " + radioButton2.getText().toString()
+      + "\n" + "4. Oldest Person Present: " + radioButton3.getText().toString()
+      + "\n" + "5. How Far Have You Travelled: " + radioButton4.getText().toString()
+      + "\n" + "6. What was your experience of Crawick Multiverse?: " + question6
+      + "\n" + "7. How did you feel while exploring Crawick Multiverse?: " + question7
+
+      + "\n" + "8. How Did You Find Out About Crawick Multiverse: " + radioButton5.getText().toString()
+      + "\n" + "8. Other: " + question8
+      + "\n" + "9. Did You Download the App before your vist?: " + radioButton6.getText().toString()
+      + "\n" + "10. Did the App improve your experience at Crawick Multiverse?: " + radioButton7.getText().toString()
+
+
+      );
+
 
       try {
          startActivity(android.content.Intent.createChooser(emailIntent, "Send mail..."));
@@ -67,7 +98,6 @@ public class SurveyBurgerFragment extends Fragment
          "There is no email client installed.", Toast.LENGTH_SHORT).show();
       }
    }
-
 
 
     @Override
@@ -82,7 +112,15 @@ public class SurveyBurgerFragment extends Fragment
          radioGroup5 = (RadioGroup) v.findViewById(R.id.HowDidYouFindOut);
          radioGroup6 = (RadioGroup) v.findViewById(R.id.DidYouDownloadApp);
          radioGroup7 = (RadioGroup) v.findViewById(R.id.DidAppImproveExperience);
-         //radioGroup1.check(R.id.radio_1);
+//         radioGroup1.check(R.id.radio_1);
+//         radioGroup2.check(R.id.radio_6);
+//         radioGroup3.check(R.id.radio_13);
+//         radioGroup4.check(R.id.radio_20);
+//         radioGroup5.check(R.id.radio_24);
+//         radioGroup6.check(R.id.radio_28);
+//         radioGroup7.check(R.id.radio_30);
+
+
          //int selectedId = radioGroup1.getCheckedRadioButtonId();
          //radioButton = (RadioButton) v.findViewById(selectedId);
 
@@ -165,14 +203,8 @@ public class SurveyBurgerFragment extends Fragment
 
                 // do something
 
-                Toast.makeText(getActivity(), "Survey submitted", Toast.LENGTH_SHORT).show();
-                Toast.makeText(getActivity(), radioButton.getText(), Toast.LENGTH_SHORT).show();
-                Toast.makeText(getActivity(), radioButton2.getText(), Toast.LENGTH_SHORT).show();
-                Toast.makeText(getActivity(), radioButton3.getText(), Toast.LENGTH_SHORT).show();
-                Toast.makeText(getActivity(), radioButton4.getText(), Toast.LENGTH_SHORT).show();
-                Toast.makeText(getActivity(), radioButton5.getText(), Toast.LENGTH_SHORT).show();
-                Toast.makeText(getActivity(), radioButton6.getText(), Toast.LENGTH_SHORT).show();
-                Toast.makeText(getActivity(), radioButton7.getText(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "Submitting Survey - please access your Email client", Toast.LENGTH_SHORT).show();
+
                 sendEmail();
             }
         });
