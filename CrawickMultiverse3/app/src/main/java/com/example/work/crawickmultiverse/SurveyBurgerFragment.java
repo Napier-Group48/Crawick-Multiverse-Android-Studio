@@ -212,7 +212,7 @@ public class SurveyBurgerFragment extends Fragment
 
                 // do something
 
-                Toast.makeText(getActivity(), "Submitting Survey - please access your Email client", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "Submitting Survey - please access your Email application", Toast.LENGTH_SHORT).show();
 
                 sendEmail();
             }

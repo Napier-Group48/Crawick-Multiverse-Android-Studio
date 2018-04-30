@@ -201,9 +201,7 @@ public class GpsFragment extends Fragment implements OnMapReadyCallback, OnMyLoc
         LatLng cosmicCollision = new LatLng(55.38209, -3.93233);
         LatLng rockPoint = new LatLng(55.38159, -3.93032);
         final LatLng carPark = new LatLng(55.37984, -3.93291);
-        final LatLng testLidl = new LatLng(55.931568, -3.236677);
-        final LatLng testMarcus = new LatLng(55.99241350661053, -3.742613494971124);
-        final LatLng napierTest = new LatLng(55.932852,-3.213917);
+
 
         mMap.addMarker(new MarkerOptions().position(crawickMulti).title("Crawick Multiverse"));
         mMap.addMarker(new MarkerOptions().position(omphalosTop).title("Omphalos Top"));
@@ -221,15 +219,10 @@ public class GpsFragment extends Fragment implements OnMapReadyCallback, OnMyLoc
         mMap.addMarker(new MarkerOptions().position(rockPoint).title("4 Rock Point"));
         mMap.addMarker(new MarkerOptions().position(carPark).title("Car Park"));
 
-        mMap.addMarker(new MarkerOptions().position(testLidl).title("Lidl Test"));
-        mMap.addMarker(new MarkerOptions().position(testMarcus).title("Marcus Test"));
-        mMap.addMarker(new MarkerOptions().position(napierTest).title("Edinburgh Napier University"));
 
 
        final Circle circle = mMap.addCircle(new CircleOptions().center(carPark).radius(25).strokeColor(Color.BLUE).fillColor(0x220000FF).strokeWidth(5.0f));
-       final Circle lidlCircle = mMap.addCircle(new CircleOptions().center(testLidl).radius(25).strokeColor(Color.BLUE).fillColor(0x220000FF).strokeWidth(5.0f));
-        final Circle marcusCircle = mMap.addCircle(new CircleOptions().center(testMarcus).radius(25).strokeColor(Color.BLUE).fillColor(0x220000FF).strokeWidth(5.0f));
-        final Circle napierCircle = mMap.addCircle(new CircleOptions().center(napierTest).radius(25).strokeColor(Color.BLUE).fillColor(0x220000FF).strokeWidth(5.0f));
+
 
         //mMap.moveCamera(CameraUpdateFactory.newLatLng(crawickMulti));
         float zoomLevel = 16.0f; //This goes up to 21
@@ -242,9 +235,7 @@ public class GpsFragment extends Fragment implements OnMapReadyCallback, OnMyLoc
             public boolean onMyLocationButtonClick() {
 
                 float [] distance = new float[2];
-                float [] Harrydistance = new float[2];
-                float [] Marcusdistance = new float[2];
-                float [] NapierDistance = new float[2];
+
 
 
                 double lat = mMap.getCameraPosition().target.latitude;
@@ -262,32 +253,8 @@ public class GpsFragment extends Fragment implements OnMapReadyCallback, OnMyLoc
 //                    Toast.makeText(getActivity(), "You are Standing out of the car park", Toast.LENGTH_LONG).show();
 //                }
 //
-//                Location.distanceBetween(lat, lng, lidlCircle.getCenter().latitude, lidlCircle.getCenter().longitude, Harrydistance);
-//                if ( Harrydistance[0] <= lidlCircle.getRadius())
-//                {
-//                    Toast.makeText(getActivity(), "You are in the Lidl Circle", Toast.LENGTH_LONG).show();
-//                }
-//                else {
-//                    Toast.makeText(getActivity(), "You are out of the Lidl Circle", Toast.LENGTH_LONG).show();
-//                }
 //
-//                Location.distanceBetween(lat, lng, marcusCircle.getCenter().latitude, marcusCircle.getCenter().longitude, Marcusdistance);
-//                if ( Marcusdistance[0] <= marcusCircle.getRadius())
-//                {
-//                    Toast.makeText(getActivity(), "You are in the Marcus Circle", Toast.LENGTH_LONG).show();
-//                }
-//                else {
-//                    Toast.makeText(getActivity(), "You are out of the Marcus Circle", Toast.LENGTH_LONG).show();
-//                }
 
-                Location.distanceBetween(lat, lng, napierCircle.getCenter().latitude, napierCircle.getCenter().longitude, NapierDistance);
-                if ( NapierDistance[0] <= napierCircle.getRadius())
-                {
-                    Toast.makeText(getActivity(), "You are in Napier University", Toast.LENGTH_LONG).show();
-                }
-                else {
-                    Toast.makeText(getActivity(), "You are out of Napier University", Toast.LENGTH_LONG).show();
-                }
                 return false;
             }
         });
@@ -298,9 +265,8 @@ public class GpsFragment extends Fragment implements OnMapReadyCallback, OnMyLoc
             @Override
             public void onMyLocationChange(Location location) {
                 float [] distance = new float[2];
-                float [] Harrydistance = new float[2];
-                float [] Marcusdistance = new float[2];
-                float [] NapierDistance = new float[2];
+
+
                 final MediaPlayer mp = MediaPlayer.create(getActivity(), R.raw.bing);
                 double lat = mMap.getCameraPosition().target.latitude;
                 double lng = mMap.getCameraPosition().target.longitude;
@@ -311,25 +277,6 @@ public class GpsFragment extends Fragment implements OnMapReadyCallback, OnMyLoc
                 if ( distance[0] <= circle.getRadius())
                 {
                     Toast.makeText(getActivity(), "You are Standing at the car park", Toast.LENGTH_LONG).show();
-                }
-               // else
-                //{
-                  //  Toast.makeText(getActivity(), "You are Standing out of the car park", Toast.LENGTH_LONG).show();
-                //}
-                Location.distanceBetween(location.getLatitude(), location.getLongitude(), lidlCircle.getCenter().latitude, lidlCircle.getCenter().longitude, Harrydistance);
-                if ( Harrydistance[0] <= lidlCircle.getRadius())
-                {
-                    Toast.makeText(getActivity(), "You are in the Lidl Circle", Toast.LENGTH_LONG).show();
-                }
-                Location.distanceBetween(location.getLatitude(), location.getLongitude(), marcusCircle.getCenter().latitude, marcusCircle.getCenter().longitude, Marcusdistance);
-                if ( Marcusdistance[0] <= marcusCircle.getRadius())
-                {
-                    Toast.makeText(getActivity(), "You are in the Marcus Circle", Toast.LENGTH_LONG).show();
-                }
-                Location.distanceBetween(location.getLatitude(), location.getLongitude(), napierCircle.getCenter().latitude, napierCircle.getCenter().longitude, NapierDistance);
-                if ( NapierDistance[0] <= napierCircle.getRadius())
-                {
-                    Toast.makeText(getActivity(), "You are in Napier University", Toast.LENGTH_LONG).show();
                     mp.start();
                     int notificationId = 1;
                     NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(mContext, "default")
@@ -340,9 +287,14 @@ public class GpsFragment extends Fragment implements OnMapReadyCallback, OnMyLoc
                     NotificationManagerCompat notificationManager = NotificationManagerCompat.from(getActivity());
                     notificationManager.notify(notificationId, notificationBuilder.build());
                 }
+               // else
+                //{
+                  //  Toast.makeText(getActivity(), "You are Standing out of the car park", Toast.LENGTH_LONG).show();
+                //}
+
                 else
                 {
-                    Toast.makeText(getActivity(), "You are out of Napier University", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getActivity(), "You are out of the Car Park", Toast.LENGTH_LONG).show();
                     //mp.start();
                     int notificationId = 1;
                     NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(mContext, "default")
