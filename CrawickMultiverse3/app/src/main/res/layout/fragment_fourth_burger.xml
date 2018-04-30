@@ -45,6 +45,7 @@
             android:textSize="15dp" />
 
         <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/NumberOfPeopleInGroup"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
@@ -79,6 +80,7 @@
             android:textSize="15dp" />
 
         <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/YoungestPersonPresent"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
@@ -121,6 +123,7 @@
             android:textSize="15dp" />
 
         <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/OldestPersonPresent"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
@@ -163,6 +166,7 @@
             android:textSize="15dp" />
 
         <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/HowFarHaveYouTravelled"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
@@ -225,6 +229,7 @@
             android:textSize="15dp" />
 
         <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/HowDidYouFindOut"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
@@ -263,6 +268,7 @@
             android:textSize="15dp" />
 
         <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/DidYouDownloadApp"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
@@ -285,6 +291,7 @@
             android:textSize="15dp" />
 
         <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/DidAppImproveExperience"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
