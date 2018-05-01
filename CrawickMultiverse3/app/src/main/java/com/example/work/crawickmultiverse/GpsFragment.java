@@ -267,7 +267,7 @@ public class GpsFragment extends Fragment implements OnMapReadyCallback, OnMyLoc
                 float [] distance = new float[2];
 
 
-                final MediaPlayer mp = MediaPlayer.create(getActivity(), R.raw.bing);
+                final MediaPlayer mp = MediaPlayer.create(getActivity(), R.raw.plucky);
                 double lat = mMap.getCameraPosition().target.latitude;
                 double lng = mMap.getCameraPosition().target.longitude;
                 //Toast.makeText(getActivity(), "You are standing at " + lat + " " + lng,
