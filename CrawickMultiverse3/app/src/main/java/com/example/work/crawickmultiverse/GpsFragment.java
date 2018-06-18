@@ -42,6 +42,7 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.Circle;
 import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 /**
@@ -53,6 +54,7 @@ public class GpsFragment extends Fragment implements OnMapReadyCallback, OnMyLoc
     private Context mContext;
     private GoogleMap mMap;
     SupportMapFragment mapFragment;
+    MediaPlayer mp;
     private boolean mPermissionDenied = false;
 
     public GpsFragment() {
@@ -184,7 +186,7 @@ public class GpsFragment extends Fragment implements OnMapReadyCallback, OnMyLoc
         mMap.setMyLocationEnabled(true);
         mMap.getUiSettings().setMyLocationButtonEnabled(true);
 
-        // Add a marker in Sydney and move the camera
+
 
         LatLng crawickMulti = new LatLng(55.3816164, -3.9329154);
         LatLng omphalosTop = new LatLng(55.38481, -3.93317);
@@ -200,23 +202,25 @@ public class GpsFragment extends Fragment implements OnMapReadyCallback, OnMyLoc
         LatLng amp78 = new LatLng(55.38235, -3.93277);
         LatLng cosmicCollision = new LatLng(55.38209, -3.93233);
         LatLng rockPoint = new LatLng(55.38159, -3.93032);
+        LatLng cometSeats = new LatLng(55.383608, -3.931852);
         final LatLng carPark = new LatLng(55.37984, -3.93291);
 
 
-        mMap.addMarker(new MarkerOptions().position(crawickMulti).title("Crawick Multiverse"));
-        mMap.addMarker(new MarkerOptions().position(omphalosTop).title("Omphalos Top"));
-        mMap.addMarker(new MarkerOptions().position(omphalosBottom).title("Omphalos Bottom"));
-        mMap.addMarker(new MarkerOptions().position(void5).title("Void 5"));
-        mMap.addMarker(new MarkerOptions().position(supercluster11).title("Supercluster 11"));
-        mMap.addMarker(new MarkerOptions().position(milkyway13).title("Milkyway 13"));
-        mMap.addMarker(new MarkerOptions().position(andromeda14).title("Andromeda 14"));
-        mMap.addMarker(new MarkerOptions().position(multiverse12).title("Multiverse 12"));
-        mMap.addMarker(new MarkerOptions().position(northsouthAve2).title("North South Avenue Point 2"));
-        mMap.addMarker(new MarkerOptions().position(northsouthAve3).title("North South Avenue Point 3"));
-        mMap.addMarker(new MarkerOptions().position(mosaicInAmp).title("Mosaic in Ampitheatre 7/8"));
-        mMap.addMarker(new MarkerOptions().position(amp78).title("Ampitheatre 7/8"));
-        mMap.addMarker(new MarkerOptions().position(cosmicCollision).title("Cosmic Collisions 6"));
-        mMap.addMarker(new MarkerOptions().position(rockPoint).title("4 Rock Point"));
+       // mMap.addMarker(new MarkerOptions().position(crawickMulti).title("Crawick Multiverse"));
+        mMap.addMarker(new MarkerOptions().position(omphalosTop).title("The Void"));
+        mMap.addMarker(new MarkerOptions().position(omphalosBottom).title("Omphalos"));
+        mMap.addMarker(new MarkerOptions().position(void5).title("Belvedere"));
+        mMap.addMarker(new MarkerOptions().position(supercluster11).title("Supercluster"));
+        mMap.addMarker(new MarkerOptions().position(milkyway13).title("Milkyway"));
+        mMap.addMarker(new MarkerOptions().position(andromeda14).title("Andromeda"));
+        mMap.addMarker(new MarkerOptions().position(multiverse12).title("Multiverse"));
+        //mMap.addMarker(new MarkerOptions().position(northsouthAve2).title("North South Avenue Point 2"));
+        mMap.addMarker(new MarkerOptions().position(northsouthAve3).title("North South Avenue Point"));
+        mMap.addMarker(new MarkerOptions().position(mosaicInAmp).title("Mosaic (in Ampitheatre)"));
+        mMap.addMarker(new MarkerOptions().position(amp78).title("Ampitheatre"));
+        mMap.addMarker(new MarkerOptions().position(cosmicCollision).title("Cosmic Collisions"));
+        mMap.addMarker(new MarkerOptions().position(rockPoint).title("Access to Cosmic Collision"));
+        mMap.addMarker(new MarkerOptions().position(cometSeats).title("Comet seats"));
         mMap.addMarker(new MarkerOptions().position(carPark).title("Car Park"));
 
 
@@ -230,14 +234,172 @@ public class GpsFragment extends Fragment implements OnMapReadyCallback, OnMyLoc
 
         final Location location = mMap.getMyLocation();
 
+        mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
+            @Override
+            public boolean onMarkerClick(Marker marker) {
+                String MTitle = marker.getTitle();
+                //Toast.makeText(getActivity(), MTitle,Toast.LENGTH_LONG).show();
+                if (mp.isPlaying()){
+                    mp.stop();
+                }
+                if (MTitle.equals("Car Park")) {
+                    if (mp.isPlaying()){
+                        mp.stop();
+                    }
+                    mp = MediaPlayer.create(getActivity(),R.raw.location1);
+                    //mp.stop();
 
+                    mp.start();
+
+                }
+
+                else if (MTitle.equals("Access to Cosmic Collision")) {
+                    if (mp.isPlaying()){
+                        mp.stop();
+                    }
+                    mp = MediaPlayer.create(getActivity(),R.raw.location2);
+                    //mp.stop();
+
+                    mp.start();
+
+                }
+                else if (MTitle.equals("Comet seats")) {
+                    if (mp.isPlaying()){
+                        mp.stop();
+                    }
+                    mp = MediaPlayer.create(getActivity(),R.raw.location3);
+                    //mp.stop();
+
+                    mp.start();
+
+                }
+                else if (MTitle.equals("Belvedere")) {
+                    if (mp.isPlaying()){
+                        mp.stop();
+                    }
+                    mp = MediaPlayer.create(getActivity(),R.raw.location4);
+                    //mp.stop();
+
+                    mp.start();
+
+                }
+                else if (MTitle.equals("The Void")) {
+                    if (mp.isPlaying()){
+                        mp.stop();
+                    }
+                    mp = MediaPlayer.create(getActivity(),R.raw.location5);
+                    //mp.stop();
+
+                    mp.start();
+
+                }
+                else if (MTitle.equals("Cosmic Collisions")) {
+                    if (mp.isPlaying()){
+                        mp.stop();
+                    }
+                    mp = MediaPlayer.create(getActivity(),R.raw.location6);
+                    //mp.stop();
+
+                    mp.start();
+
+                }
+                else if (MTitle.equals("Ampitheatre")) {
+                    if (mp.isPlaying()){
+                        mp.stop();
+                    }
+                    mp = MediaPlayer.create(getActivity(),R.raw.location7);
+                    //mp.stop();
+
+                    mp.start();
+
+                }
+                else if (MTitle.equals("Mosaic (in Ampitheatre)")) {
+                    if (mp.isPlaying()){
+                        mp.stop();
+                    }
+                    mp = MediaPlayer.create(getActivity(),R.raw.location8);
+                    //mp.stop();
+
+                    mp.start();
+
+                }
+                else if (MTitle.equals("North South Avenue Point")) {
+                    if (mp.isPlaying()){
+                        mp.stop();
+                    }
+                    mp = MediaPlayer.create(getActivity(),R.raw.location9);
+                    //mp.stop();
+
+                    mp.start();
+
+                }
+                else if (MTitle.equals("Omphalos")) {
+                    if (mp.isPlaying()){
+                        mp.stop();
+                    }
+                    mp = MediaPlayer.create(getActivity(),R.raw.location10);
+                    //mp.stop();
+
+                    mp.start();
+
+                }
+                else if (MTitle.equals("Supercluster")) {
+                    if (mp.isPlaying()){
+                        mp.stop();
+                    }
+                    mp = MediaPlayer.create(getActivity(),R.raw.location11);
+                    //mp.stop();
+
+                    mp.start();
+
+                }
+                else if (MTitle.equals("Multiverse")) {
+                    if (mp.isPlaying()){
+                        mp.stop();
+                    }
+                    mp = MediaPlayer.create(getActivity(),R.raw.location12);
+                    //mp.stop();
+
+                    mp.start();
+
+                }
+                else if (MTitle.equals("Milkyway")) {
+                    if (mp.isPlaying()){
+                        mp.stop();
+                    }
+                    mp = MediaPlayer.create(getActivity(),R.raw.location13);
+                    //mp.stop();
+
+                    mp.start();
+
+                }
+                else if (MTitle.equals("Andromeda")) {
+                    if (mp.isPlaying()){
+                        mp.stop();
+                    }
+                    mp = MediaPlayer.create(getActivity(),R.raw.location14);
+                    //mp.stop();
+
+                    mp.start();
+
+                }
+                else {
+
+                }
+
+
+                return false;
+            }
+        });
         mMap.setOnMyLocationButtonClickListener(new OnMyLocationButtonClickListener() {
+            @Override
             public boolean onMyLocationButtonClick() {
 
                 float [] distance = new float[2];
 
 
-
+                //mp = MediaPlayer.create(getActivity(), R.raw.plucky);
+               //mp.start();
                 double lat = mMap.getCameraPosition().target.latitude;
                 double lng = mMap.getCameraPosition().target.longitude;
                 Toast.makeText(getActivity(), "You are standing at " + lat + " " + lng,
@@ -267,7 +429,8 @@ public class GpsFragment extends Fragment implements OnMapReadyCallback, OnMyLoc
                 float [] distance = new float[2];
 
 
-                final MediaPlayer mp = MediaPlayer.create(getActivity(), R.raw.plucky);
+                //MediaPlayer mp;
+                mp = MediaPlayer.create(getActivity(), R.raw.plucky);
                 double lat = mMap.getCameraPosition().target.latitude;
                 double lng = mMap.getCameraPosition().target.longitude;
                 //Toast.makeText(getActivity(), "You are standing at " + lat + " " + lng,
@@ -279,13 +442,13 @@ public class GpsFragment extends Fragment implements OnMapReadyCallback, OnMyLoc
                     Toast.makeText(getActivity(), "You are Standing at the car park", Toast.LENGTH_LONG).show();
                     mp.start();
                     int notificationId = 1;
-                    NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(mContext, "default")
-                            .setSmallIcon(R.drawable.ic_gps_fixed_black_24dp)
-                            .setContentTitle("Crawick Multiverse")
-                            .setContentText("You are standing at Napier University")
-                            .setPriority(NotificationCompat.PRIORITY_DEFAULT);
-                    NotificationManagerCompat notificationManager = NotificationManagerCompat.from(getActivity());
-                    notificationManager.notify(notificationId, notificationBuilder.build());
+                   // NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(mContext, "default")
+                    //        .setSmallIcon(R.drawable.ic_gps_fixed_black_24dp)
+                    //        .setContentTitle("Crawick Multiverse")
+                     //       .setContentText("You are standing at Napier University")
+                     //       .setPriority(NotificationCompat.PRIORITY_DEFAULT);
+                    //NotificationManagerCompat notificationManager = NotificationManagerCompat.from(getActivity());
+                    //notificationManager.notify(notificationId, notificationBuilder.build());
                 }
                // else
                 //{
@@ -297,13 +460,13 @@ public class GpsFragment extends Fragment implements OnMapReadyCallback, OnMyLoc
                     Toast.makeText(getActivity(), "You are out of the Car Park", Toast.LENGTH_LONG).show();
                     //mp.start();
                     int notificationId = 1;
-                    NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(mContext, "default")
-                            .setSmallIcon(R.drawable.ic_gps_fixed_black_24dp)
-                            .setContentTitle("Crawick Multiverse")
-                            .setContentText("You are standing outside Napier University")
-                            .setPriority(NotificationCompat.PRIORITY_DEFAULT);
-                    NotificationManagerCompat notificationManager = NotificationManagerCompat.from(getActivity());
-                    notificationManager.notify(notificationId, notificationBuilder.build());
+                 //   NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(mContext, "default")
+                 //           .setSmallIcon(R.drawable.ic_gps_fixed_black_24dp)
+                 //           .setContentTitle("Crawick Multiverse")
+                 //           .setContentText("You are standing outside Napier University")
+                 //           .setPriority(NotificationCompat.PRIORITY_DEFAULT);
+                 //   NotificationManagerCompat notificationManager = NotificationManagerCompat.from(getActivity());
+                 //   notificationManager.notify(notificationId, notificationBuilder.build());
                 }
 
 

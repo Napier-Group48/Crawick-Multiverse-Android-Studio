@@ -60,7 +60,7 @@ public class SurveyBurgerFragment extends Fragment
 
       android.util.Log.i("Send email", "");
 
-      String[] TO = {"napier.crawick2018@gmail.com"};
+      String[] TO = {"info@crawickmultiverse.co.uk"};
       //String[] CC = {"ross.houliston1@gmail.com"};
       android.content.Intent emailIntent = new android.content.Intent(android.content.Intent.ACTION_SEND);
       emailIntent.setData(android.net.Uri.parse("mailto:"));
